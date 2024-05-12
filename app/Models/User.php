@@ -8,5 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     use HasFactory;
+    protected $table = 'users';
     protected $guarded = [];
+
+    public function category(){
+        return $this->belongsTo(Role::class);
+    }
 }

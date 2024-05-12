@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Avatar;
+use App\Models\Role;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -24,11 +26,19 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
+            'activity' => fake()->word(),
+            'login' => fake()->unique()->userName(),
+            'password' => fake()->password(),
             'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
-            'remember_token' => Str::random(10),
+            'name' => fake()->word(),
+            'surname' => fake()->word(),
+            'rate_honesty' => fake()->numberBetween(0, 100),
+            'rate_decency' => fake()->numberBetween(0, 100),
+            'role_id' => Role::get()->random()->id,
+            'visited_at' => fake()->dateTime(),
+            'buying_count' => random_int(0,20),
+            'sales_count' => random_int(0,20),
+            'ava_id' => Avatar::get()->random()->id,
         ];
     }
 

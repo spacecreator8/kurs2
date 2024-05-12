@@ -13,7 +13,21 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->string('activity');
+            $table->string('login');
+            $table->string('password');
+            $table->string('email');
+            $table->string('name');
+            $table->string('surname');
+            $table->integer('rate_honesty');
+            $table->integer('rate_decency'); //рейтинг поведения
+            $table->unsignedBigInteger('role_id');
             $table->timestamps();
+            $table->dateTime('visited_at');
+            $table->integer('buying_count');
+            $table->integer('sales_count');
+            $table->unsignedBigInteger('ava_id');
+            $table->softDeletes();
         });
     }
 
