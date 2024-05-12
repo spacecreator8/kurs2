@@ -20,3 +20,4 @@ Route::get('/test', 'App\Http\Controllers\TestController@index');
 Route::group(['prefix'=>'user', 'namespace'=>'App\Http\Controllers\User'], function(){
     Route::get('/create', 'CreateController')->name('post.create');
 });
+//for del
