@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 Route::get('/test', 'App\Http\Controllers\TestController@index');
 Route::group(['prefix'=>'user', 'namespace'=>'App\Http\Controllers\User'], function(){
-    Route::get('/create', 'CreateController')->name('post.create');
+    Route::get('/create', 'CreateController')->name('user.create');
+    Route::post('/store', 'StoreController')->name('user.store');
 });
-//for del
+

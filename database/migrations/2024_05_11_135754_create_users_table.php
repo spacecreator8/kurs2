@@ -13,20 +13,20 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('activity');
+            $table->string('activity')->default('active');
             $table->string('login');
             $table->string('password');
             $table->string('email');
             $table->string('name');
             $table->string('surname');
-            $table->integer('rate_honesty');
-            $table->integer('rate_decency'); //рейтинг поведения
-            $table->unsignedBigInteger('role_id');
+            $table->integer('rate_honesty')->default(100);
+            $table->integer('rate_decency')->default(100); //рейтинг поведения
+            $table->unsignedBigInteger('role_id')->default(2);;
             $table->timestamps();
-            $table->dateTime('visited_at');
-            $table->integer('buying_count');
-            $table->integer('sales_count');
-            $table->unsignedBigInteger('ava_id');
+            $table->dateTime('visited_at')->nullable();
+            $table->integer('buying_count')->default(0);
+            $table->integer('sales_count')->default(0);
+            $table->unsignedBigInteger('ava_id')->nullable();
             $table->softDeletes();
         });
     }
