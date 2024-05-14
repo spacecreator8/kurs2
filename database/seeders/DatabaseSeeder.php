@@ -20,8 +20,8 @@ class DatabaseSeeder extends Seeder
         User::factory(3)->create();
 
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
+        // \App\Models\UserOld::factory()->create([
+        //     'name' => 'Test UserOld',
         //     'email' => 'test@example.com',
         // ]);
     }

@@ -16,18 +16,20 @@ return new class extends Migration
             $table->string('activity')->default('active');
             $table->string('login');
             $table->string('password');
-            $table->string('email');
+            $table->string('email')->unique();
             $table->string('name');
             $table->string('surname');
-            $table->integer('rate_honesty')->default(100);
+            $table->integer('rate_honesty')->default(100); //рейтинг поведения
             $table->integer('rate_decency')->default(100); //рейтинг поведения
-            $table->unsignedBigInteger('role_id')->default(2);;
-            $table->timestamps();
+            $table->unsignedBigInteger('role_id')->default(2);
             $table->dateTime('visited_at')->nullable();
             $table->integer('buying_count')->default(0);
             $table->integer('sales_count')->default(0);
             $table->unsignedBigInteger('ava_id')->nullable();
+            $table->timestamps();
+            $table->timestamp('email_verified_at')->nullable();
             $table->softDeletes();
+            $table->rememberToken();
         });
     }
 

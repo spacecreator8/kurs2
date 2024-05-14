@@ -15,7 +15,7 @@ class StoreController extends BaseController
         $data= $request->validated();
         $post = $this->service->store($data);
 
-        return new UserResource($post);
-//        return redirect()->route('user.create');
+//        return new UserResource($post);
+        return redirect()->route('user.create');
     }
 }
