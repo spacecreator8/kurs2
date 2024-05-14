@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         Role::factory(5)->create();
         Avatar::factory(5)->create();
-        User::factory(10)->create();
+        User::factory(3)->create();
 
 
         // \App\Models\User::factory()->create([
